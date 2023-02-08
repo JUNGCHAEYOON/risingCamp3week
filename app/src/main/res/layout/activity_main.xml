@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MAIN.MainActivity">
 
     <FrameLayout
         android:id="@+id/fl_con"
@@ -24,6 +24,7 @@
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
         app:labelVisibilityMode="unlabeled"
+        app:itemIconTint="@drawable/menu_selector_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

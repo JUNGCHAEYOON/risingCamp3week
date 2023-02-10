@@ -1,12 +1,16 @@
 package com.example.risingcamp3week.FRAGMENT.MYPAGE
 
+import android.media.Image
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.risingcamp3week.R
@@ -26,9 +30,12 @@ class MyPageFragment : Fragment() {
 
         /* toolbar */
         //튕김
-//        val toolbarMyPage = view.findViewById<Toolbar>(R.id.toolbar_mypage)
+        val newFeedButton = view.findViewById<ImageView>(R.id.add_btn_mypage)
+        newFeedButton.setOnClickListener {
+            Toast.makeText(getActivity(), "버통!", Toast.LENGTH_SHORT).show()
+        }
 
-        /* rv */
+        /* rv_maypage_horizontal */
         val rv_mypage_horizontal = view.findViewById<RecyclerView>(R.id.rv_mypage_horizontal)
         val itemList = ArrayList<MyPageHorizontalItem>()
 
@@ -48,5 +55,23 @@ class MyPageFragment : Fragment() {
         myPageHorizontalAdapter.notifyDataSetChanged()
         rv_mypage_horizontal.adapter = myPageHorizontalAdapter
         rv_mypage_horizontal.layoutManager = LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL,false)
+
+        /* rv_feed */
+        val rv_feed = view.findViewById<RecyclerView>(R.id.rv_feed)
+        val itemList2 = ArrayList<MyPageFeedItem>()
+
+        //item 추가
+        itemList2.add(MyPageFeedItem(R.drawable.ic_mypage))
+        itemList2.add(MyPageFeedItem(R.drawable.ic_mypage))
+        itemList2.add(MyPageFeedItem(R.drawable.ic_mypage))
+        itemList2.add(MyPageFeedItem(R.drawable.ic_mypage))
+        itemList2.add(MyPageFeedItem(R.drawable.ic_mypage))
+        itemList2.add(MyPageFeedItem(R.drawable.ic_mypage))
+
+        //어댑터 연결
+        val myPageFeedAdapter = MyPageFeedAdapter(itemList2)
+        myPageFeedAdapter.notifyDataSetChanged()
+        rv_feed.adapter = myPageFeedAdapter
+        rv_feed.layoutManager = GridLayoutManager(getContext(), 3)
     }
 }

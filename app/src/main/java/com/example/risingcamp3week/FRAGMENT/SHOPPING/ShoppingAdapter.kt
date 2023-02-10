@@ -10,7 +10,7 @@ import com.example.risingcamp3week.R
 
 class ShoppingAdapter (val itemList : ArrayList<ShoppingItem>) : RecyclerView.Adapter<ShoppingAdapter.ShoppingViewHolder> (){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoppingViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.shopping_item,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_shopping,parent,false)
         return ShoppingViewHolder(view)
     }
 

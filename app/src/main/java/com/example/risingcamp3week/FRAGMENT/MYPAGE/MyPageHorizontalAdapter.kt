@@ -10,7 +10,7 @@ import com.example.risingcamp3week.R
 
 class MyPageHorizontalAdapter (val itemList : ArrayList<MyPageHorizontalItem>) : RecyclerView.Adapter<MyPageHorizontalAdapter.MyPageHorizontalViewHolder> (){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyPageHorizontalViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.mypagehorizontal_item,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_mypagehorizontal,parent,false)
         return MyPageHorizontalViewHolder(view)
     }
     override fun onBindViewHolder(holder: MyPageHorizontalViewHolder, position: Int) {

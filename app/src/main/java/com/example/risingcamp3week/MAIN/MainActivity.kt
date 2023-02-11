@@ -3,8 +3,10 @@ package com.example.risingcamp3week.MAIN
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.risingcamp3week.FRAGMENT.*
+import com.example.risingcamp3week.FRAGMENT.HOME.HomeFragment
 import com.example.risingcamp3week.FRAGMENT.MYPAGE.MyPageFragment
+import com.example.risingcamp3week.FRAGMENT.REALS.RealsFragment
+import com.example.risingcamp3week.FRAGMENT.SEARCH.SearchFragment
 import com.example.risingcamp3week.FRAGMENT.SHOPPING.ShoppingFragment
 import com.example.risingcamp3week.R
 import com.example.risingcamp3week.databinding.ActivityMainBinding

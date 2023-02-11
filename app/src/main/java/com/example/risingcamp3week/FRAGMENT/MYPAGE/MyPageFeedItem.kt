@@ -1,4 +1,7 @@
 package com.example.risingcamp3week.FRAGMENT.MYPAGE
 
-data class MyPageFeedItem(val image : Int) {
-}
+import android.graphics.drawable.Drawable
+
+//data class MyPageFeedItem(val image : Drawable)
+
+data class MyPageFeedItem(val image : String)

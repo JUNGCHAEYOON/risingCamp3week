@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "587415589330",
+    "project_id": "rising3-a973a",
+    "storage_bucket": "rising3-a973a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:587415589330:android:f26fcd93df7af50990b80b",
+        "android_client_info": {
+          "package_name": "com.example.risingcamp3week"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "587415589330-hepigk5gsqdbajqcflkvhroqh78r3f5r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNdUKcFuivDNAz9xRkomRKBkQN0fXBRFE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "587415589330-hepigk5gsqdbajqcflkvhroqh78r3f5r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

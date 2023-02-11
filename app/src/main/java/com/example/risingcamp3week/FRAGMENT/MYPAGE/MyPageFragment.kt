@@ -1,19 +1,27 @@
 package com.example.risingcamp3week.FRAGMENT.MYPAGE
 
-import android.media.Image
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.Toast
-import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.risingcamp3week.MAIN.NewFeedActivity
 import com.example.risingcamp3week.R
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.ktx.component1
+import com.google.firebase.storage.ktx.component2
+import com.google.firebase.storage.ktx.storage
+import kotlinx.coroutines.*
+
 
 class MyPageFragment : Fragment() {
 
@@ -29,10 +37,11 @@ class MyPageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         /* toolbar */
-        //튕김
+        // 뉴피드 생성 버튼
         val newFeedButton = view.findViewById<ImageView>(R.id.add_btn_mypage)
         newFeedButton.setOnClickListener {
-            Toast.makeText(getActivity(), "버통!", Toast.LENGTH_SHORT).show()
+            val intent = Intent(getActivity(), NewFeedActivity::class.java)
+            startActivity(intent)
         }
 
         /* rv_maypage_horizontal */
@@ -59,14 +68,52 @@ class MyPageFragment : Fragment() {
         /* rv_feed */
         val rv_feed = view.findViewById<RecyclerView>(R.id.rv_feed)
         val itemList2 = ArrayList<MyPageFeedItem>()
+        
+        // 아이템 추가
+        itemList2.add(MyPageFeedItem("https://picsum.photos/id/76/200"))
+        itemList2.add(MyPageFeedItem("https://picsum.photos/id/75/200"))
+        itemList2.add(MyPageFeedItem("https://picsum.photos/id/74/200"))
+        itemList2.add(MyPageFeedItem("https://picsum.photos/id/73/200"))
+        itemList2.add(MyPageFeedItem("https://picsum.photos/id/72/200"))
+        itemList2.add(MyPageFeedItem("https://picsum.photos/id/71/200"))
+        itemList2.add(MyPageFeedItem("https://picsum.photos/id/70/200"))
+        itemList2.add(MyPageFeedItem("https://picsum.photos/id/69/200"))
+        itemList2.add(MyPageFeedItem("https://picsum.photos/id/68/200"))
 
-        //item 추가
-        itemList2.add(MyPageFeedItem(R.drawable.ic_mypage))
-        itemList2.add(MyPageFeedItem(R.drawable.ic_mypage))
-        itemList2.add(MyPageFeedItem(R.drawable.ic_mypage))
-        itemList2.add(MyPageFeedItem(R.drawable.ic_mypage))
-        itemList2.add(MyPageFeedItem(R.drawable.ic_mypage))
-        itemList2.add(MyPageFeedItem(R.drawable.ic_mypage))
+
+        // 파이어베이스 스토리지 파일 목록 나열
+        val storage = Firebase.storage
+        val listRef = storage.reference.child("feed")
+        listRef.listAll()
+            .addOnSuccessListener { (items, prefixes) ->
+                prefixes.forEach { prefix ->
+                }
+                items.forEach { item ->
+                    Log.d("AAAAAAAAAAAACCCCCCCCCCCCCC",item.toString())
+                }
+            }
+            .addOnFailureListener {
+            }
+
+        /*
+        여기서 부터 안됨 ㅠㅠㅠ
+        *
+        *
+        *
+        *
+         */
+        // url 로 다운로드 왜안되냐 진짜 ㅠㅠ
+        val storageRef = FirebaseStorage.getInstance().reference
+        storageRef.child("gs://rising3-a973a.appspot.com/feed/android.graphics.drawable.BitmapDrawable%401e3cc67.png").downloadUrl.addOnSuccessListener {
+            // Got the download URL for 'users/me/profile.png'
+            Log.d("AAAAAAAAAAAABBBBBBBBBBB","성공")
+            Log.d("AAAAAAAAAAAABBBBBBBBBBB",it.toString())
+        }.addOnFailureListener {
+            // Handle any errors
+            Log.d("AAAAAAAAAAAABBBBBBBBBBB","실패")
+        }
+
+
 
         //어댑터 연결
         val myPageFeedAdapter = MyPageFeedAdapter(itemList2)
@@ -75,3 +122,6 @@ class MyPageFragment : Fragment() {
         rv_feed.layoutManager = GridLayoutManager(getContext(), 3)
     }
 }
+
+
+

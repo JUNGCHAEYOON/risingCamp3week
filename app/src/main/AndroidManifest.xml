@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -15,8 +17,9 @@
         android:theme="@style/Theme.RisingCamp3week"
         tools:targetApi="31">
         <activity
-            android:name=".NewFeedActivity"
-            android:exported="false">
+            android:name=".MAIN.NewFeedActivity"
+            android:exported="false"
+            android:parentActivityName=".MAIN.MainActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

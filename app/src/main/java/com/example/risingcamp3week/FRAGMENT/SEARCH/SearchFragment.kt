@@ -1,4 +1,4 @@
-package com.example.risingcamp3week.FRAGMENT
+package com.example.risingcamp3week.FRAGMENT.SEARCH
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
